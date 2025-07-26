@@ -1,0 +1,31 @@
+{
+  "name": "family-task-management-api",
+  "version": "1.0.0",
+  "description": "RESTful API for household task management built with Fastify and MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "fastify",
+    "mongodb",
+    "tasks",
+    "api",
+    "household",
+    "family"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "fastify": "^4.24.0",
+    "fastify-swagger": "^8.10.0",
+    "fastify-swagger-ui": "^1.9.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
