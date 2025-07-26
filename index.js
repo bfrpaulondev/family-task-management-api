@@ -30,10 +30,16 @@ async function connectDatabase() {
   }
 }
 
-// Register Swagger for API documentation.  The first plugin defines
-// the specification and the second plugin serves the UI at /docs.
-fastify.register(require('fastify-swagger'), {
-  swagger: {
+// Register Swagger (OpenAPI) for API documentation.  We use
+// @fastify/swagger and @fastify/swagger-ui which are the
+// modern packages maintained by the Fastify team.  The first
+// plugin defines the OpenAPI specification and the second
+// plugin serves a Swagger UI at `/docs`.
+const fastifySwagger = require('@fastify/swagger');
+const fastifySwaggerUI = require('@fastify/swagger-ui');
+
+fastify.register(fastifySwagger, {
+  openapi: {
     info: {
       title: 'Family Task Management API',
       description: 'API for managing household tasks with authentication, prioritisation and gamification.',
@@ -45,13 +51,11 @@ fastify.register(require('fastify-swagger'), {
       { name: 'tasks', description: 'Task management' },
       { name: 'stats', description: 'Statistics and history' },
       { name: 'alerts', description: 'Overdue task alerts' }
-    ],
-    consumes: ['application/json'],
-    produces: ['application/json']
+    ]
   }
 });
 
-fastify.register(require('fastify-swagger-ui'), {
+fastify.register(fastifySwaggerUI, {
   routePrefix: '/docs',
   uiConfig: {
     docExpansion: 'list',
