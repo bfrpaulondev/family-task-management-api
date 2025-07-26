@@ -12,8 +12,12 @@
 const fastify = require('fastify')({ logger: true });
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const Family = require('./models/Family');
-const Task = require('./models/Task');
+// Import our Mongoose models.  In this repository the model files live
+// at the project root (Family.js and Task.js), so we reference them
+// relative to this file.  Using capitalised filenames aligns with
+// Node’s module resolution on case‑sensitive filesystems.
+const Family = require('./Family');
+const Task = require('./Task');
 require('dotenv').config();
 
 // Connect to MongoDB using the URI defined in the environment.
